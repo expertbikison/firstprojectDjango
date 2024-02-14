@@ -1,0 +1,30 @@
+{% extends  'base.html' %}
+{% block content %}
+<h1>Hello World</h1>
+<form method="post" action="{% url 'homeapp' %}">
+    <table>
+        <tr>
+        <th>Name</th> <th>Score</th> <th>Action</th>
+        </tr>
+
+        <tr>
+            {% for field in form %}
+        <td>{{ field}}</td>
+        {% endfor %}
+        <td><button name="save">Save</button></td>
+        </tr>
+        {% for score in scores %}
+        <tr>
+            <td>{{ score.name}} </td>
+            <td>{{ score.value}} </td>
+            <td>
+                <button name="edit">Edit</button>
+                <button name="Delete">Delete</button>
+            </td>    
+        </tr>
+
+        </tr>
+    </table>
+    {%  endfor %}
+</form>>    
+{%  endblock %}
